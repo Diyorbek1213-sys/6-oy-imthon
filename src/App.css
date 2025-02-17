@@ -1,0 +1,220 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 156px;
+    background-color: #5CA5A5;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background-image: url(./assets/images/back.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first_div {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(222, 217, 217);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+    background-color: white;
+    
+}
+
+.title {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.first_input, .second_input, .third_input {
+    border-radius: 5px;
+    border: 1px solid rgb(222, 217, 217);
+    padding: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.div_1, .div_2, .div_4 {
+    width: 100%;
+}
+
+.div_2 {
+    margin-top: 25px;
+}
+
+.div_3 {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.div_4 {
+    margin-top: 20px;
+}
+
+.select_section {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.select_first, .select_second, .select_third {
+    padding: 8px;
+    display: flex;
+    gap: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid rgb(222, 217, 217);
+    margin-top: 5px;
+}
+
+.end_of_div {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.div_end {
+    display: flex;
+    gap: 10px;
+    margin-top: 7px;
+}
+
+.div_box, .div_box_2, .div_box_3, .div_box_4 {
+    display: flex;
+    gap: 7px;
+}
+
+.div_box_2 {
+    margin-right: 17px;
+} 
+
+.div_box_4 {
+    margin-right: 34px;
+}
+
+.stick, .stick_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.save_button {
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    margin-top: 15px;
+}
+
+.save_button:hover {
+    background-color: rgb(98, 98, 98);
+}
+
+.times {
+    margin-top: 8px;
+}
+
+.main_card {
+    max-width: 1110px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 0 auto; */
+    margin-top: 20px;
+    padding: 32px 40px;
+    background-color: white;
+    border-radius: 5px
+}
+
+.new {
+    padding: 5px;
+    background-color: rgb(0, 153, 153);
+    border-radius: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+.featured {
+    padding: 5px;
+    background-color: black;
+    border-radius: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+.title_of_card {
+    color: rgb(0, 153, 153);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.kinds {
+    display: flex;
+    gap: 20px;
+}
+
+.kind {
+    border-radius: 5px;
+    background-color: rgb(216, 250, 250);
+    color: rgb(0, 153, 153);
+    font-weight: bold;
+    padding: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.kind:hover {
+    background-color: rgb(41, 95, 95);
+    color: white;
+}
+
+.asosiy {
+    margin-top: 76px;
+    margin-bottom: 50px;
+}
+
+.features {
+    display: flex;
+    gap: 7px;
+}
+
+.same {
+    color: #7C8F8F;
+}
+
+.deleteBtnSame {
+    background-color: blueviolet;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.deleteBtnSame:hover {
+    background-color: rgb(63, 20, 103);
+}
+
+.DarkMode {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
