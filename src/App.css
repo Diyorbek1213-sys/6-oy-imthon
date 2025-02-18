@@ -133,8 +133,7 @@
 }
 
 .main_card {
-    max-width: 1110px;
-    width: 100%;
+    width: 1110px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -168,6 +167,17 @@
 }
 
 .kinds {
+    width: 420px;
+    display: flex;
+    gap: 20px;
+}
+
+.ddd {
+    width: 220px;
+}
+
+.ooo {
+    width: 220px;
     display: flex;
     gap: 20px;
 }

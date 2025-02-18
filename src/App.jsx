@@ -7,12 +7,12 @@ function App() {
   const [kind_of_work, setKind_of_work] = useState('')
   const [location, setLocation] = useState('')
   const [users, setUsers] = useState([])
-  const [features, setFeatures] = useState('')
-  const [features_2, setFeatures_2] = useState('')
-  const [fullStack, setFullStack] = useState('')
-  const [python, setPython] = useState('')
-  const [midweight, setMidWeight] = useState('')
-  const [Reactjs, setReactJs] = useState('')
+  const [features, setFeatures] = useState([])
+  const [features_2, setFeatures_2] = useState([])
+  const [fullStack, setFullStack] = useState([])
+  const [python, setPython] = useState([])
+  const [midweight, setMidWeight] = useState([])
+  const [reactJs, setReactJs] = useState([])
   const formRef = useRef()
   const [edit, setEdit] = useState(false)
   const [formData, setFormData] = useState({
@@ -21,7 +21,10 @@ function App() {
     fullStack: '',
   })
 
-  document.body.style.backgroundColor = color
+  useEffect(() => {
+    document.body.style.backgroundColor = color;
+  }, [color]);
+  
 
 
   useEffect(() => {
@@ -75,7 +78,7 @@ function App() {
       fullStack,
       python,
       midweight,
-      Reactjs,
+      reactJs,
       features,
       features_2
     }
@@ -106,7 +109,6 @@ function App() {
     }
 
     setUsers([...users, user])
-    formRef.current.reset()
 
     setTime('')
     setKind_of_work('')
@@ -122,67 +124,107 @@ function App() {
     setPython('')
     setMidWeight('')
     setReactJs('')
-
+    
+    localStorage.removeItem('checked_1')
+    localStorage.removeItem('checked_2')
+    localStorage.removeItem('checked_3')
+    localStorage.removeItem('checked_4')
+    localStorage.removeItem('checked_5')
+    localStorage.removeItem('checked_6')
+    formRef.current.reset()
+    window.location.reload()
   }
 
   function handleSelect(event) {
-    console.log(event.target.value, event.target.checked)
-    let copied = [...features]
+    console.log(event.target.value, event.target.checked);
+    let copied = [...features];
+
     if (event.target.checked) {
-      localStorage.setItem('checked_1', JSON.stringify(event.target.value))
-      copied.push(event.target.value)
+      copied.push(event.target.value);
+    } else {
+      copied = copied.filter(item => item !== event.target.value);
+      localStorage.removeItem('checked_1');
     }
-    setFeatures(copied)
+
+    localStorage.setItem('checked_1', JSON.stringify(copied));
+    setFeatures(copied);
   }
 
+
   function handleSelect_2(event) {
-    console.log(event.target.value, event.target.checked)
-    let copied = [...features_2]
+    console.log(event.target.value, event.target.checked);
+    let copied = [...features_2];
+
     if (event.target.checked) {
-      localStorage.setItem('checked_2', JSON.stringify(event.target.value))
-      copied.push(event.target.value)
+      copied.push(event.target.value);
+    } else {
+      copied = copied.filter(item => item !== event.target.value);
+      localStorage.removeItem('checkbox_2');
     }
-    setFeatures_2(copied)
+
+    localStorage.setItem('checked_2', JSON.stringify(copied));
+    setFeatures_2(copied);
   }
 
   function handleSelect_3(event) {
-    console.log(event.target.value, event.target.checked)
-    let copied = [...fullStack]
+    console.log(event.target.value, event.target.checked);
+    let copied = [...fullStack];
+
     if (event.target.checked) {
-      localStorage.setItem('checked_3', JSON.stringify(event.target.value))
-      copied.push(event.target.value)
+      copied.push(event.target.value);
+    } else {
+      copied = copied.filter(item => item !== event.target.value);
+      localStorage.removeItem('checked_3');
     }
-    setFullStack(copied)
+
+    localStorage.setItem('checked_3', JSON.stringify(copied));
+    setFullStack(copied);
   }
 
   function handleSelect_4(event) {
-    console.log(event.target.value, event.target.checked)
-    let copied = [...python]
+    console.log(event.target.value, event.target.checked);
+    let copied = [...python];
+
     if (event.target.checked) {
-      localStorage.setItem('checked_4', JSON.stringify(event.target.value))
-      copied.push(event.target.value)
+      copied.push(event.target.value);
+    } else {
+      copied = copied.filter(item => item !== event.target.value);
+      localStorage.removeItem('checked_4');
     }
-    setPython(copied)
+
+    localStorage.setItem('checked_4', JSON.stringify(copied));
+    setPython(copied);
   }
 
   function handleSelect_5(event) {
-    console.log(event.target.value, event.target.checked)
-    let copied = [...midweight]
+    console.log(event.target.value, event.target.checked);
+    let copied = [...midweight];
+
     if (event.target.checked) {
-      localStorage.setItem('checked_5', JSON.stringify(event.target.value))
-      copied.push(event.target.value)
+      copied.push(event.target.value);
+    } else {
+      copied = copied.filter(item => item !== event.target.value);
+      localStorage.removeItem('checked_5');
     }
-    setMidWeight(copied)
+
+    localStorage.setItem('checked_5', JSON.stringify(copied));
+    setMidWeight(copied);
   }
 
   function handleSelect_6(event) {
-    console.log(event.target.value, event.target.checked)
-    let copied = [...Reactjs]
+    console.log(event.target.value, event.target.checked);
+    let copied = [...reactJs];
+
     if (event.target.checked) {
-      localStorage.setItem('checked_6', JSON.stringify(event.target.value))
-      copied.push(event.target.value)
+      copied.push(event.target.value);
+    } else {
+      copied = copied.filter(item => item !== event.target.value);
+      // localStorage.removeItem('checked_6');
+      localStorage.setItem('checked_6', JSON.stringify(copied));
     }
-    setReactJs(copied)
+
+    localStorage.setItem('checked_6', JSON.stringify(copied));
+    setReactJs(copied);
   }
 
   function handleDelete(index) {
@@ -251,10 +293,10 @@ function App() {
             <div>
               <label style={{ color: color === 'black' ? 'white' : 'black' }} htmlFor="select_second">Ish turi</label>
               <select value={kind_of_work} onChange={(e) => { setKind_of_work(e.target.value) }} id='select_second' className="select_second">
-                <option style={{ color: color === 'black' ? 'white' : 'black' }}>Tanlang</option>
-                <option style={{ color: color === 'black' ? 'white' : 'black' }}>Part Time</option>
-                <option style={{ color: color === 'black' ? 'white' : 'black' }}>Full Time</option>
-                <option style={{ color: color === 'black' ? 'white' : 'black' }}>Contract</option>
+                <option>Tanlang</option>
+                <option>Part Time</option>
+                <option>Full Time</option>
+                <option>Contract</option>
               </select>
             </div>
 
@@ -310,16 +352,17 @@ function App() {
         {
           users
             .map((user, index) => (
-              <div className='main_card' key={index}>
-                <div>
+              <div style={{backgroundColor: color === 'black' ? 'rgb(49, 47, 47)' : 'white'}} className='main_card' key={index}>
+                <div className='ddd'>
                   <div className='features'>
                     <span className='title_of_card'>Photosnap</span>
-                    {user.features.length > 0 && <span className='new'>{user.features}</span>}
-                    {user.features_2.length > 0 && <span className='featured'>{user.features_2}</span>}
+                    {user.features?.length > 0 && <span className='new'>{user.features}</span>}
+                    {user.features_2?.length > 0 && <span className='featured'>{user.features_2}</span>}
+
                   </div>
 
                   <div>
-                    <h3>{user.formData.fullStack}</h3>
+                    <h3 style={{color: color === 'black' ? 'white' : 'black'}}>{user.formData.fullStack}</h3>
                   </div>
 
                   <div className='times'>
@@ -332,11 +375,13 @@ function App() {
                 </div>
 
                 <div className='kinds'>
+                  <div className='ooo'>
                   {user.fullStack.length > 0 && <span className='kind'>{user.fullStack}</span>}
                   {user.python.length > 0 && <span className='kind'>{user.python}</span>}
                   {user.midweight.length > 0 && <span className='kind'>{user.midweight}</span>}
-                  {user.Reactjs.length > 0 && <span className='kind'>{user.Reactjs}</span>}
+                  {user.reactJs.length > 0 && <span className='kind'>{user.reactJs}</span>}
                   <button onClick={() => handleDelete(index)} className='deleteBtnSame'>Delete</button>
+                  </div>
                   {/* <button onClick={() => handleEdit(index)} className='deleteBtnSame'>Edit</button> */}
                 </div>
               </div>
